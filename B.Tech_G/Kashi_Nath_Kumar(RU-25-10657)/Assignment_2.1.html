@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Profile Card</title>
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card {
+        width: 350px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 25px;
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        text-align: center;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        transition: transform .4s ease, box-shadow .3s;
+    }
+    .card:hover {
+        transform: scale(1.06);
+        box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    }
+    #profile-img {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        transition: transform .3s ease;
+    }
+    #profile-img:hover {
+        transform: scale(1.1) rotate(3deg);
+    }
+    .badge {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: limegreen;
+        padding: 6px 14px;
+        color: white;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+        box-shadow: 0 0 8px lime;
+    }
+    h2 {
+        margin: 12px 0 5px;
+        color: #fff;
+        text-shadow: 0 0 10px #000;
+    }
+    .bio {
+        font-size: 14px;
+        color: #f2f2f2;
+        margin-bottom: 15px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: white;
+        color: #3a1c71;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .3s;
+        text-decoration: none;
+    }
+    .btn:hover {
+        background: #3a1c71;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #fff;
+    }
+    .btn:active {
+        transform: scale(0.95);
+    }
+    /* Input box */
+    .input-box {
+        margin-top: 18px;
+    }
+    .input-box input {
+        padding: 10px;
+        width: 85%;
+        border-radius: 10px;
+        border: 2px solid #fff;
+        background: rgba(255,255,255,0.3);
+        color: #fff;
+        transition: .3s;
+    }
+    .input-box input::placeholder {
+        color: #eee;
+    }
+    .input-box input:focus {
+        border-color: yellow;
+        outline: none;
+        box-shadow: 0 0 10px yellow;
+    }
+    .send-btn {
+        margin-top: 12px;
+        padding: 9px 20px;
+        background: #ffaf7b;
+        border: none;
+        color: #3a1c71;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .send-btn:hover {
+        transform: scale(1.1);
+        background: #d76d77;
+        color: white;
+        box-shadow: 0 0 10px #fff;
+    }
+</style>
+</head>
+<body>
+<div class="card">
+    <div class="badge">VERIFIED</div>
+    <img id="profile-img" src="photo.webp" alt="Profile">
+    <h2 id="userName">Kashi Yadav</h2>
+    <p class="bio">Future Software Engineer | Web Developer | C langauge | Coder</p>
+    <a class="btn" onclick="followUser()">Follow</a>
+    <div class="input-box">
+        <input type="text" id="msg" placeholder="Write a message...">
+    </div>
+    <button class="send-btn" onclick="sendMessage()">Send</button>
+</div>
+<script>
+function followUser() {
+    alert("You are now following this profile!");
+}
+// Send message using prompt + alert
+function sendMessage() {
+    let text = document.getElementById("msg").value;
+    
+    if (text.trim() === "") {
+        alert("Message cannot be empty!");
+        return;
+    alert("Message delivered: " + text);
+    }
+}
+// Change name using JS interaction (real profile feel)
+document.getElementById("profile-img").onclick = function () {
+    let newName = prompt("Enter new profile name:");
+    if (newName && newName.trim() !== "") {
+        document.getElementById("userName").innerText = newName;
+        alert("Profile name updated!");
+    }
+};
+</script>
+</body>
+</html>
